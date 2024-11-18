@@ -38,7 +38,8 @@ img {
 .stripes,
 .stripes .blue,
 .stripes .yellow,
-.stripes .green {
+.stripes .green,
+.big-bang-price {
   position: absolute;
   inset: 0;
 }
@@ -62,4 +63,14 @@ img {
   left: 270px;
   top: 200px;
   z-index: -1;
+}
+
+.big-bang-price {
+  top: 150px;
+  z-index: -1;
+  left: -10px;
+}
+
+.big-bang-price img {
+  max-width: 200px;
 }

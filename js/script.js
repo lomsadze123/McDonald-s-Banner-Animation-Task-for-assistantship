@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const handleBigBangAnimation = () => {
+    const bigBang = document.getElementById("big-bang");
+    addTimeOutMiddleware(bigBang, "show", 3500);
+  };
+
   handleHeadlinePriceAnimation();
   handleStripesAnimation();
+  handleBigBangAnimation();
 });
