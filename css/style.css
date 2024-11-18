@@ -74,3 +74,10 @@ img {
 .big-bang-price img {
   max-width: 200px;
 }
+
+.chicken-paprika {
+  position: absolute;
+  max-width: 250px;
+  bottom: 200px;
+  right: 50px;
+}
