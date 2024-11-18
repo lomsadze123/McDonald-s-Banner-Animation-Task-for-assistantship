@@ -29,7 +29,18 @@ img {
   width: 100%;
 }
 
-.footer-logo {
+.footer-logo,
+.headline-price {
   position: absolute;
   inset: 0;
+}
+
+.headline-price {
+  top: 89px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.headline-price.show {
+  opacity: 1;
 }
