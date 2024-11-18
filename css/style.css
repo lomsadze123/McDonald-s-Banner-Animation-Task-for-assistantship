@@ -18,10 +18,7 @@ body {
 
 main {
   position: relative;
-}
-
-.main-frame {
-  height: 100vh;
+  margin: -80px 0 0 0;
 }
 
 .main-frame img {
@@ -36,9 +33,9 @@ img {
 .footer-logo,
 .headline-price,
 .stripes,
-.stripes .blue,
-.stripes .yellow,
-.stripes .green,
+.blue,
+.yellow,
+.green,
 .big-bang-price {
   position: absolute;
   inset: 0;
@@ -60,8 +57,8 @@ img {
 .stripes {
   max-width: 250px;
   width: 100%;
-  left: 270px;
-  top: 200px;
+  left: 300px;
+  top: 230px;
   z-index: -1;
 }
 
