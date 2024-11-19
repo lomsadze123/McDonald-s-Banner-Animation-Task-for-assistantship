@@ -99,6 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   handleHideMenu();
-
   handleEndingSlideAnimation();
 });
