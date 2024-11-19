@@ -78,3 +78,54 @@ img {
   bottom: 200px;
   right: 50px;
 }
+
+.end {
+  display: none;
+}
+
+.big-bang-end {
+  margin-top: 150px;
+  width: 400px;
+}
+.cta {
+  margin: -450px 0 0 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.end.showMe {
+  display: block;
+}
+
+.end .big-bang-end {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.end .cta {
+  animation: scaleIn 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}

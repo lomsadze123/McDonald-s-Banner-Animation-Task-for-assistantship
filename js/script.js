@@ -31,30 +31,54 @@ document.addEventListener("DOMContentLoaded", () => {
     addTimeOutMiddleware(chickenPaprika, "show", 4000);
   };
 
+  const handleChangeItems = ({ bgColor, chickenPaprikaImage }) => {
+    const body = document.body;
+    body.style.backgroundColor = bgColor;
+
+    const bigBang = document.getElementById("big-bang");
+    removeTimeOutMiddleware(bigBang, "show", 1);
+    handleBigBangAnimation(1000);
+
+    const stripes = document.querySelectorAll(".stripes div");
+    stripes.forEach((stripe) => {
+      removeTimeOutMiddleware(stripe, "show", 0);
+    });
+    handleStripesAnimation();
+
+    const chickenPaprika = document.getElementById("chicken-paprika");
+    removeTimeOutMiddleware(chickenPaprika, "show", 0);
+
+    addTimeOutMiddleware(chickenPaprika, "show", 1000, () => {
+      const paprikaImg = chickenPaprika.querySelector("img");
+      paprikaImg.src = chickenPaprikaImage;
+      chickenPaprika.classList.add("show");
+    });
+  };
+
   const handleReusableChanges = ({ delay, bgColor, chickenPaprikaImage }) => {
-    setTimeout(() => {
-      const body = document.body;
-      body.style.backgroundColor = bgColor;
+    const dummyElement = document.createElement("div");
+    addTimeOutMiddleware(dummyElement, "", delay, () =>
+      handleChangeItems({ bgColor, chickenPaprikaImage })
+    );
+  };
 
-      const bigBang = document.getElementById("big-bang");
-      removeTimeOutMiddleware(bigBang, "show", 1);
-      handleBigBangAnimation(1000);
+  const handleHideMenu = () => {
+    const hideMenu = document.getElementById("hidden-wrapper");
 
-      const stripes = document.querySelectorAll(".stripes div");
-      stripes.forEach((stripe) => {
-        removeTimeOutMiddleware(stripe, "show", 0);
-      });
-      handleStripesAnimation();
+    addTimeOutMiddleware(
+      hideMenu,
+      "",
+      11000,
+      () => (hideMenu.style.display = "none")
+    );
+  };
 
-      const chickenPaprika = document.getElementById("chicken-paprika");
-      removeTimeOutMiddleware(chickenPaprika, "show", 0);
+  const handleEndingSlideAnimation = () => {
+    const endingSlide = document.getElementById("end");
 
-      setTimeout(() => {
-        const paprikaImg = chickenPaprika.querySelector("img");
-        paprikaImg.src = chickenPaprikaImage;
-        chickenPaprika.classList.add("show");
-      }, 1000);
-    }, delay);
+    addTimeOutMiddleware(endingSlide, "", 11000, () =>
+      endingSlide.classList.add("showMe")
+    );
   };
 
   handleHeadlinePriceAnimation();
@@ -73,4 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
     bgColor: "#16b8a1",
     chickenPaprikaImage: "assets/txt_double_cheeseburger.png",
   });
+
+  handleHideMenu();
+
+  handleEndingSlideAnimation();
 });

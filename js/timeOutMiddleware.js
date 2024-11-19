@@ -1,4 +1,4 @@
-export const addTimeOutMiddleware = (target, className, delay) => {
+export const addTimeOutMiddleware = (target, className, delay, callBack) => {
   let timeOut;
 
   if (timeOut) {
@@ -6,7 +6,11 @@ export const addTimeOutMiddleware = (target, className, delay) => {
   }
 
   timeOut = setTimeout(() => {
-    target.classList.add(className);
+    if (callBack) {
+      callBack();
+    } else {
+      target.classList.add(className);
+    }
   }, delay);
 };
 
